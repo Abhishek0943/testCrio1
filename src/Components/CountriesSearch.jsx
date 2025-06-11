@@ -3,8 +3,8 @@ import React from "react";
 const CountriesSearch = ({ data }) => {
   return (
     <div className="countryCard">
-      <img src={data.png} alt={data.common} />
-      <h2>{data.common}</h2>
+      <img src={data.flag} alt={data.abbr} />
+      <h2>{data.name}</h2>
     </div>
   );
 };

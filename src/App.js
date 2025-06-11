@@ -5,29 +5,30 @@ import CountriesSearch from "./Components/CountriesSearch";
 function App() {
   const [countryData, setCountryData] = useState([]);
   const fetchCountryData = async () => {
-    let url = "https://countries-search-data-prod-812920491762.asia-south1.run.app/countries";
+    let url = "https://xcountries-backend.azurewebsites.net/all";
     try {
       let response = await axios.get(url);
       setCountryData(response.data);
     } catch (error) {
-      console.log("Error: ", error);
+      console.error("Error: ", error);
+      setLoading(false);
     }
   };
-
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     fetchCountryData();
   }, []);
 
-
-
-
-
   return (
     <div>
-     
       <div className="App">
-        {countryData &&
-          countryData.map((ele) => <CountriesSearch data={ele} />)}
+        {countryData.length > 0 ? (
+          countryData.map((ele) => <CountriesSearch data={ele} />)
+        ) : loading ? (
+          <h1>loading....</h1>
+        ) : (
+          <h1>No data Found</h1>
+        )}
       </div>
     </div>
   );
