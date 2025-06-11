@@ -10,7 +10,7 @@ function App() {
       let response = await axios.get(url);
       setCountryData(response.data);
     } catch (error) {
-      console.error("Error: ", error);
+      console.error("Error fetching data:", error);
       setLoading(false);
     }
   };
