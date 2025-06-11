@@ -42,45 +42,35 @@ function App() {
   }, [state, country]);
 
   return (
-    <div>
-      <h1>select contry</h1>
-      <div>
-        <select onChange={(e) => setCountry(e.target.value)}>
-          <option defaultValue={""} >select a contory</option>
-          {
-            countryData?.map((e, i) => {
-              return (
-                <option value={e} key={`${e}-${i}`}>{e}</option>
-              )
-            })
-          }
-        </select>
-        <select disabled={!states.length>0 } onChange={(e) => setState(e.target.value)}>
-          <option defaultValue={""} >select a state</option>
-          {
-            states?.map((e, i) => {
-              return (
-                <option value={e} key={`${e}-${i}`}>{e}</option>
-              )
-            })
-          }
-        </select>
-        <select disabled={!cities.length>0 } onChange={(e) => setCiti(e.target.value)}>
-          <option defaultValue={""} >select a citi</option>
-          {
-            cities?.map((e, i) => {
-              return (
-                <option value={e} key={`${e}-${i}`}>{e}</option>
-              )
-            })
-          }
-        </select>
-      </div>
-      {
-        country && state&& citi&&
-      <p style={{display:"flex"}}>you seleced <p>{country}</p> , <p>{state}, {citi}</p> </p>
-      }
-    </div>
+  <div>
+  <h1>Select Country</h1>
+  <div>
+    <select onChange={(e) => setCountry(e.target.value)} defaultValue="">
+      <option value="" disabled>Select a country</option>
+      {countryData?.map((e, i) => (
+        <option value={e} key={`${e}-${i}`}>{e}</option>
+      ))}
+    </select>
+
+    <select onChange={(e) => setState(e.target.value)} disabled={!states.length} defaultValue="">
+      <option value="" disabled>Select a state</option>
+      {states?.map((e, i) => (
+        <option value={e} key={`${e}-${i}`}>{e}</option>
+      ))}
+    </select>
+
+    <select onChange={(e) => setCiti(e.target.value)} disabled={!cities.length} defaultValue="">
+      <option value="" disabled>Select a city</option>
+      {cities?.map((e, i) => (
+        <option value={e} key={`${e}-${i}`}>{e}</option>
+      ))}
+    </select>
+  </div>
+
+  {country && state && citi && (
+    <p>You selected {citi}, {state}, {country}</p>
+  )}
+</div>
   );
 }
 
