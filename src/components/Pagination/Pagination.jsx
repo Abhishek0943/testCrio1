@@ -10,20 +10,20 @@ export default function Pagination({ updatePage, currentPage, totalPages }) {
     }
 
     const handleNext = () => {
-        if(totalPages != currentPage){
+        if(totalPages !== currentPage){
             updatePage(prev => prev + 1)
         }
     }
 
     return (
         <div className={styles.paginationWrapper}>
-            <button onClick={handlePrev} disabled={currentPage == 1}>
+            <button onClick={handlePrev} disabled={currentPage === 1}>
                 <IoIosArrowRoundBack />
             </button>
 
             <p>{currentPage}</p>
 
-            <button onClick={handleNext} disabled={totalPages == currentPage}>
+            <button onClick={handleNext} disabled={totalPages === currentPage}>
                 <IoIosArrowRoundForward />
             </button>
         </div>

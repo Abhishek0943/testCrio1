@@ -16,12 +16,12 @@ export default function TransactionList({ transactions, title, editTransactions,
 
     const handleDelete = (id) => {
 
-        const item = transactions.find(i => i.id == id)
+        const item = transactions.find(i => i.id === id)
         const price = Number(item.price)
         setBalance(prev => prev + price)
 
         editTransactions(prev => (
-            prev.filter(item => item.id != id)
+            prev.filter(item => item.id !== id)
         ))
     }
 
@@ -47,7 +47,7 @@ export default function TransactionList({ transactions, title, editTransactions,
             setCurrentPage(prev => prev - 1)
         }
 
-    }, [totalPages])
+    }, [totalPages, currentPage])
 
     return (
         <div className={styles.transactionsWrapper}>

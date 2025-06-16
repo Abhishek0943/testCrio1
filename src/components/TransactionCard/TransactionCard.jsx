@@ -10,9 +10,9 @@ export default function TransactionCard({ details, handleDelete, handleEdit }) {
         <div className={styles.card}>
             <div className={styles.cardInner}>
                 <div className={styles.cardIcon}>
-                    {details.category == 'food' && <PiPizza />}
-                    {details.category == 'entertainment' && <PiGift />}
-                    {details.category == 'travel' && <BsSuitcase2 />}
+                    {details.category === 'food' && <PiPizza />}
+                    {details.category === 'entertainment' && <PiGift />}
+                    {details.category === 'travel' && <BsSuitcase2 />}
                 </div>
                 <div className={styles.cardInfo}>
                     <h5>{details.title}</h5>

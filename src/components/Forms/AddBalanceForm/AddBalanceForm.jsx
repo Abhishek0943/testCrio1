@@ -35,10 +35,10 @@ export default function AddBalanceForm({ setIsOpen, setBalance }) {
                     required
                 />
 
-                <Button type="submit" style="primary" shadow>Add Balance</Button>
+                <Button type="submit"  shadow>Add Balance</Button>
 
                 <Button
-                    style='secondary'
+                    variant='secondary'
                     shadow
                     handleClick={() => setIsOpen(false)}
                 >
