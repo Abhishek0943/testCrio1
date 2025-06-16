@@ -67,7 +67,7 @@ console.log(categoryCount)
     let foodSpends = 0,
       entertainmentSpends = 0,
       travelSpends = 0;
-    var foodCount = 0
+    let foodCount = 0
     let   entertainmentCount = 0
     let   travelCount = 0;
 console.log(foodCount, entertainmentCount, travelCount);
