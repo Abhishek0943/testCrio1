@@ -1,13 +1,10 @@
-import Home from './pages/Home/Home'
-import { SnackbarProvider } from 'notistack';
+
+import './App.css';
+import CounterApp from "./Counter.jsx";
 
 function App() {
   return (
-    <SnackbarProvider >
-      <div>
-        <Home />
-      </div>
-    </SnackbarProvider>
+    <CounterApp/>
   );
 }
 
