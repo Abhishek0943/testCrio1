@@ -2,7 +2,6 @@ import Stack from "@mui/material/Stack";
 import Logo from "../../Assets/navbar/logo.png"
 import { Link } from "react-router-dom"
 import Button from '@mui/material/Button';
-import { useNavigate } from 'react-router-dom';
 import styles from "./Navbar.module.css";
 
 

@@ -14,18 +14,18 @@ export default function Searchbar({home=false, stateData, selectedState, setSele
     // console.log("state data in search>> ", stateData)
     let navigate = useNavigate();
 
-    const { enqueueSnackbar, closeSnackbar } = useSnackbar();
+    const { enqueueSnackbar } = useSnackbar();
 
     const handleSearch = () => {
 
-        if(selectedState == ""){
+        if(selectedState === ""){
             enqueueSnackbar("State cannot be empty", {
                 variant: "warning"
             })
             return
         }
 
-        if(selectedCity == ""){
+        if(selectedCity === ""){
             enqueueSnackbar("City cannot be empty", {
                 variant: "warning"
             })

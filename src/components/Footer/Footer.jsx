@@ -1,5 +1,4 @@
 import Stack from '@mui/material/Stack';
-import Container from '@mui/material/Container';
 import styles from "./Footer.module.css";
 import medifyIcon from "../../Assets/Footer/medify_icon.png"
 import Typography from '@mui/material/Typography';

@@ -1,4 +1,3 @@
-import Navbar from "../../Components/Navbar/Navbar"
 import Hero from "../../Components/Hero/Hero"
 import Specialization from "../../Components/Specialization/Specialization"
 import LatestNews from "../../Components/LatestNews/LatestNews"

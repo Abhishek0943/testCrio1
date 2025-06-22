@@ -1,4 +1,3 @@
-import Faq from "../../Components/FAQ/Faq"
 import Navbar from "../../Components/Navbar/Navbar"
 import styles from "./Booking.module.css"
 import { useOutletContext } from "react-router-dom"
@@ -8,15 +7,6 @@ import CenterLogo from "../../Assets/Search/centerLogo.png"
 import Button from "@mui/material/Button"
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 
-const dummyData = {
-        "Hospital Name": "southeast alabama medical center",
-        "City": "DOTHAN",
-        "State": "Alabama",
-        "Hospital Type": "General",
-        "Hospital overall rating": "4.5",
-        bookingDate: "2024-12-15",
-        bookingTime: "10:00 AM",
-      }
 
 function BookedCard({detail}) {
 

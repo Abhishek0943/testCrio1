@@ -54,7 +54,7 @@ export default function Layout () {
     // console.log("state within layout >>", stateData)
     //useeffect - selected state
     useEffect(() => {
-        if(selectedState != ""){
+        if(selectedState !== ""){
             // console.log("selected state >>", selectedState);
             setSelectedCity("");
             axios.get(`https://meddata-backend.onrender.com/cities/${selectedState}`)
@@ -68,7 +68,7 @@ export default function Layout () {
 
     useEffect(() => {
 
-        if (selectedCity != "" && selectedState != ""){
+        if (selectedCity !== "" && selectedState !== ""){
             // console.log("selected state >>", selectedState);
             // console.log("selected city >>", selectedCity);
 

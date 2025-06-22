@@ -8,36 +8,7 @@ import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 import BasicTabs from "../BookingTab/BookingTab"
 
 
-const dummyData = {
-    "Provider ID": "010001",
-    "Hospital Name": "SOUTHEAST ALABAMA MEDICAL CENTER",
-    "Address": "1108 ROSS CLARK CIRCLE",
-    "City": "DOTHAN",
-    "State": "Alabama",
-    "ZIP Code": 36301,
-    "County Name": "HOUSTON",
-    "Phone Number": 3347938701,
-    "Hospital Type": "Acute Care Hospitals",
-    "Hospital Ownership": "Government - Hospital District or Authority",
-    "Emergency Services": "Yes",
-    "Meets criteria for meaningful use of EHRs": "Y",
-    "Hospital overall rating": 3,
-    "Hospital overall rating footnote": "",
-    "Mortality national comparison": "Same as the national average",
-    "Mortality national comparison footnote": "",
-    "Safety of care national comparison": "Above the national average",
-    "Safety of care national comparison footnote": "",
-    "Readmission national comparison": "Same as the national average",
-    "Readmission national comparison footnote": "",
-    "Patient experience national comparison": "Below the national average",
-    "Patient experience national comparison footnote": "",
-    "Effectiveness of care national comparison": "Same as the national average",
-    "Effectiveness of care national comparison footnote": "",
-    "Timeliness of care national comparison": "Same as the national average",
-    "Timeliness of care national comparison footnote": "",
-    "Efficient use of medical imaging national comparison": "Same as the national average",
-    "Efficient use of medical imaging national comparison footnote": ""
-}
+
 
 const bookingSlots = {
     "Morning": ["11:00 AM"],
@@ -67,7 +38,8 @@ getWeek();
 
 export default function MedicalCenterCard({center, setBookedDetails}) {
 
-    const [likeCount, setLikeCount] = useState(5)
+    // eslint-disable-next-line no-unused-vars
+    const [likeCount, set] = useState(5)
     const [bookingDisplay, setBookingDisplay] = useState(false);
 
     
