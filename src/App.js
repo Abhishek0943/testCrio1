@@ -10,7 +10,7 @@ const App = () => {
         // Fetch country data from API
         const fetchCountries = async () => {
             try {
-                const response = await fetch('https://restcountries.com/v3.1/all?fields=cca3,name,flags');
+                const response = await fetch('https://countries-search-data-prod-812920491762.asia-south1.run.app/countries');
                 if (!response.ok) throw new Error('Network response was not ok.');
                 const data = await response.json();
                 setCountries(data);
