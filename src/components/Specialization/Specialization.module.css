@@ -1,0 +1,80 @@
+.card {
+    width: 150px;
+    background-color: white;
+    padding: 50px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.spcContainer {
+    background: linear-gradient(90deg, #e8f0ff, #f4f9ff);
+    padding: 50px;
+    gap: 50px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.medContainer {
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.ptContainer {
+    background: linear-gradient(90deg, #e8f0ff, #f4f9ff);
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.boxStyle {
+    width: 40%;
+    height: 40vw;
+    position: relative;
+}
+
+.boxStyle2 {
+    width: 40%;
+    height: 40vw;
+    
+    display: flex;
+    align-items: center;
+
+
+}
+
+.square1 {
+    width: fit-content;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+
+    position: absolute;
+    top: 35%;
+    left: 25%;
+    z-index: 2;
+}
+
+.square2 {
+    width: fit-content;
+
+    position: absolute;
+    top: 15%;
+    right: 0;
+}
+
+.square3 {
+    width: fit-content;
+
+    position: absolute;
+    bottom: 5%;
+    right: 15%;
+}

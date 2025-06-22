@@ -1,0 +1,26 @@
+.container {
+    padding: 10%;
+    padding-top: 0;
+    padding-bottom: 5%;
+    background: white;
+}
+
+.imageContainer {
+    width: 300px;
+    height: 200px;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+}
+
+.medContainer {
+
+    padding: 10px;
+
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

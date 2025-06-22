@@ -1,83 +1,188 @@
-import {
-    Box,
-    Button,
-    Container,
-    Grid,
-    Link,
-    Stack,
-    Typography,
-  } from "@mui/material";
-  import logo from "../../assets/logo.png";
-  import fb from "../../assets/fb.png";
-  import pinterest from "../../assets/pinterest.png";
-  import twitter from "../../assets/twitter.png";
-  import yt from "../../assets/yt.png";
-  import FooterLink from "./FooterLink";
-  
-  export default function Footer() {
+import Stack from '@mui/material/Stack';
+import Container from '@mui/material/Container';
+import styles from "./Footer.module.css";
+import medifyIcon from "../../Assets/Footer/medify_icon.png"
+import Typography from '@mui/material/Typography';
+import facebookIcon from "../../Assets/Footer/facebook_icon.png"
+import skypeIcon from "../../Assets/Footer/skype_icon.png"
+import youtubeIcon from "../../Assets/Footer/youtube_icon.png"
+import pinterestIcon from "../../Assets/Footer/pinterest_icon.png"
+import arrowBullet from "../../Assets/Footer/bullet.png"
+
+
+export default function Footer() {
+
+
     return (
-      <Box bgcolor="primary.secondary" pb={3} pt={6}>
-        <Container maxWidth="xl">
-          <Grid container spacing={4}>
-            <Grid item xs={12} md={4.5}>
-              <Stack
-                alignItems="flex-start"
-                justifyContent="space-between"
-                height={1}
-              >
-                <Box src={logo} height={36} alt="Medify" component="img" mb={2} />
-                <Stack direction="row" spacing={1.5}>
-                  <Box component="img" src={fb} height={36} />
-                  <Box component="img" src={twitter} height={36} />
-                  <Box component="img" src={yt} height={36} />
-                  <Box component="img" src={pinterest} height={36} />
+        <div className={styles.container} >
+
+            <Stack direction="column" spacing={2}
+            sx={{
+                justifyContent: "space-between",
+                height: "70%",
+                width: "90%"
+            }}
+            >
+
+                <Stack direction="row" spacing={2} 
+                style={{
+                    height : "200px",
+                    justifyContent: "space-evenly"
+                }}
+                >
+                    <Stack 
+                    sx={{
+                        justifyContent: "space-between",
+                    }}
+                    >
+                        <Stack direction="row" spacing={2}>
+                            <img src={medifyIcon} alt="medify-icon" />
+                            <Typography variant='h6' color='primary' 
+                            style={{
+                                fontWeight : 'bold'
+                            }}
+                            >Medify</Typography>
+                        </Stack>
+
+                        <Stack direction="row" spacing={2}> 
+                            <img src={facebookIcon} alt="facebook-icon" />
+                            <img src={skypeIcon} alt="skype-icon" />
+                            <img src={youtubeIcon} alt="youtube-icon" />
+                            <img src={pinterestIcon} alt="pinterest-icon" />
+                        </Stack>
+                    </Stack>
+
+                    <Stack direction="column" spacing={2}>
+                        <Stack direction="row" spacing={2}>
+                            <img src={arrowBullet} alt='arrow-bullet-symbol' className={styles.bullet} />
+                            <Typography sx={{
+                                color: 'white'
+                            }} >About Us</Typography>
+                        </Stack>
+
+                        <Stack direction="row" spacing={2}>
+                            <img src={arrowBullet} alt='arrow-bullet-symbol' className={styles.bullet} />
+                            <Typography sx={{
+                                color: 'white'
+                            }} >Our Pricing</Typography>
+                        </Stack>
+
+                        <Stack direction="row" spacing={2}>
+                            <img src={arrowBullet} alt='arrow-bullet-symbol' className={styles.bullet} />
+                            <Typography sx={{
+                                color: 'white'
+                            }} >Our Gallery</Typography>
+                        </Stack>
+
+                        <Stack direction="row" spacing={2}>
+                            <img src={arrowBullet} alt='arrow-bullet-symbol' className={styles.bullet} />
+                            <Typography sx={{
+                                color: 'white'
+                            }} >Appointment</Typography>
+                        </Stack>
+
+                        <Stack direction="row" spacing={2}>
+                            <img src={arrowBullet} alt='arrow-bullet-symbol' className={styles.bullet} />
+                            <Typography sx={{
+                                color: 'white'
+                            }} >Privacy Policy</Typography>
+                        </Stack>
+
+                    </Stack>
+
+                    <Stack spacing={2} >
+                        <Stack direction="row" spacing={2}>
+                            <img src={arrowBullet} alt='arrow-bullet-symbol' className={styles.bullet} />
+                            <Typography sx={{
+                                color: 'white'
+                            }} >Orthology</Typography>
+                        </Stack>
+
+                        <Stack direction="row" spacing={2}>
+                            <img src={arrowBullet} alt='arrow-bullet-symbol' className={styles.bullet} />
+                            <Typography sx={{
+                                color: 'white'
+                            }} >Neurology</Typography>
+                        </Stack>
+
+                        <Stack direction="row" spacing={2}>
+                            <img src={arrowBullet} alt='arrow-bullet-symbol' className={styles.bullet} />
+                            <Typography sx={{
+                                color: 'white'
+                            }} >Dental Care</Typography>
+                        </Stack>
+
+                        <Stack direction="row" spacing={2}>
+                            <img src={arrowBullet} alt='arrow-bullet-symbol' className={styles.bullet} />
+                            <Typography sx={{
+                                color: 'white'
+                            }} >Opthalmology</Typography>
+                        </Stack>
+
+                        <Stack direction="row" spacing={2}>
+                            <img src={arrowBullet} alt='arrow-bullet-symbol' className={styles.bullet} />
+                            <Typography sx={{
+                                color: 'white'
+                            }} >Cardiology</Typography>
+                        </Stack>
+                    </Stack>
+
+                    <Stack direction="column" spacing={2}>
+                        <Stack direction="row" spacing={2}>
+                            <img src={arrowBullet} alt='arrow-bullet-symbol' className={styles.bullet} />
+                            <Typography sx={{
+                                color: 'white'
+                            }} >About Us</Typography>
+                        </Stack>
+
+                        <Stack direction="row" spacing={2}>
+                            <img src={arrowBullet} alt='arrow-bullet-symbol' className={styles.bullet} />
+                            <Typography sx={{
+                                color: 'white'
+                            }} >Our Pricing</Typography>
+                        </Stack>
+
+                        <Stack direction="row" spacing={2}>
+                            <img src={arrowBullet} alt='arrow-bullet-symbol' className={styles.bullet} />
+                            <Typography sx={{
+                                color: 'white'
+                            }} >Our Gallery</Typography>
+                        </Stack>
+
+                        <Stack direction="row" spacing={2}>
+                            <img src={arrowBullet} alt='arrow-bullet-symbol' className={styles.bullet} />
+                            <Typography sx={{
+                                color: 'white'
+                            }} >Appointment</Typography>
+                        </Stack>
+
+                        <Stack direction="row" spacing={2}>
+                            <img src={arrowBullet} alt='arrow-bullet-symbol' className={styles.bullet} />
+                            <Typography sx={{
+                                color: 'white'
+                            }} >Privacy Policy</Typography>
+                        </Stack>
+
+                    </Stack>
                 </Stack>
-              </Stack>
-            </Grid>
-  
-            <Grid item xs={12} md={2.5}>
-              <Stack spacing={2}>
-                <FooterLink>About Us</FooterLink>
-                <FooterLink>Our Pricing</FooterLink>
-                <FooterLink>Our Gallery</FooterLink>
-                <FooterLink>Appointment</FooterLink>
-                <FooterLink>Privacy Policy</FooterLink>
-              </Stack>
-            </Grid>
-  
-            <Grid item xs={12} md={2.5}>
-              <Stack spacing={2}>
-                <FooterLink>Orthology</FooterLink>
-                <FooterLink>Neurology</FooterLink>
-                <FooterLink>Dental Care</FooterLink>
-                <FooterLink>Opthalmology</FooterLink>
-                <FooterLink>Cardiology</FooterLink>
-              </Stack>
-            </Grid>
-  
-            <Grid item xs={12} md={2.5}>
-              <Stack spacing={2}>
-                <FooterLink>About Us</FooterLink>
-                <FooterLink>Our Pricing</FooterLink>
-                <FooterLink>Our Gallery</FooterLink>
-                <FooterLink>Appointment</FooterLink>
-                <FooterLink>Privacy Policy</FooterLink>
-              </Stack>
-            </Grid>
-          </Grid>
-  
-          <Typography
-            fontWeight={300}
-            color="#fff"
-            fontSize={14}
-            pt={3}
-            mt={5}
-            borderTop="1px solid rgba(255,255,255,0.1)"
-          >
-            Copyright ©2023 Surya Nursing Home.com. All Rights Reserved
-          </Typography>
-        </Container>
-      </Box>
-    );
-  }
-  
+
+                <Stack direction="column" spacing={2}
+                sx={{
+                    padding: "20px",
+                    paddingLeft: "5%",
+                    paddingRight: "5%"
+                }}
+                >
+                    <hr className={styles.line} />
+                    <Typography
+                    sx={{
+                        color: 'white'
+                    }}
+                    >Copyright ©2023 Surya Nursing Home.com. All Rights Reserved</Typography>
+                </Stack>
+
+            </Stack>
+
+        </div>
+    )
+}

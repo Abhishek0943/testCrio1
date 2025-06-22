@@ -1,0 +1,10 @@
+.searchForm {
+    display: flex;
+    gap: 15%;
+    justify-content: flex-end;
+    padding: 30px;
+}
+
+.container {
+    width: 90%;
+}

@@ -1,0 +1,30 @@
+.container1 {
+    width: 600px;
+    height: 600px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+}
+
+
+
+.image2 {
+    position: absolute;
+    right: 0;
+    top: 150px;
+}
+
+.image3 {
+    border: 1px solid lightgrey;
+    width: fit-content;
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+
+    position: absolute;
+    left: 0;
+    bottom: 150px;
+}

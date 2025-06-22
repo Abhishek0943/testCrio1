@@ -1,0 +1,27 @@
+.container {
+    height: fit-content;
+    background: linear-gradient(90deg, #e8f0ff, #f4f9ff);
+}
+
+.DoctorBg {
+    width: 25%;
+
+    position: absolute;
+    right: 25%;
+    top: 30%;
+}
+
+.DoctorBg img {
+    width: 100%;
+    height: 100%;
+}
+
+.adCarousel {
+    padding: 10%;
+    background: white;
+}
+
+.midContainer {
+    background: linear-gradient(90deg, #e8f0ff, #f4f9ff) 0 0 / 100% 50% no-repeat, white 50% 50% / 100% 50% no-repeat;
+
+}

@@ -1,0 +1,32 @@
+.container1 {
+
+    padding: 50px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container2 {
+    background: linear-gradient(90deg, #e8f0ff, #f4f9ff);
+    padding: 50px;
+
+
+}
+
+.status1 {
+    width: 40%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.status2 {
+    width: 40%;
+}
+
+.containerMain{
+    
+}

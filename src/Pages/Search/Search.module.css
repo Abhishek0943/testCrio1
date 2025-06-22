@@ -1,0 +1,13 @@
+.searchResult {
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 20px;
+    padding-bottom: 30px;
+
+    background: linear-gradient(90deg, #e8f0ff, #f4f9ff);
+}
+
+.heading {
+    font-weight: 500;
+    font-size: 24px;
+}
