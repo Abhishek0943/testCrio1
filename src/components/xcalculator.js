@@ -47,9 +47,9 @@ const Xcalculator = () => {
           ops.pop();
         } else if (
           tokens[i] === "+" ||
-          tokens[i] == "-" ||
-          tokens[i] == "*" ||
-          tokens[i] == "/"
+          tokens[i] === "-" ||
+          tokens[i] === "*" ||
+          tokens[i] === "/"
         ) {
           while (
             ops.length > 0 &&
