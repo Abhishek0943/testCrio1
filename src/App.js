@@ -27,7 +27,8 @@ const App = () => {
     };
 
     const filteredCountries = countries.filter((country) =>
-        country.name.common.toLowerCase().includes(searchTerm)
+    
+        country.common.toLowerCase().includes(searchTerm)
     );
 
     return (
@@ -40,11 +41,11 @@ const App = () => {
                 className="searchBar"
             />
             <div className="countryContainer">
-                {filteredCountries.map((country) => (
+                {filteredCountries.map((country, index) => (
                     <CountryCard
-                        key={country.cca3}
-                        name={country.name.common}
-                        flag={country.flags.png}
+                        key={country.cca3|| index}
+                        name={country.common}
+                        flag={country.png}
                     />
                 ))}
             </div>
