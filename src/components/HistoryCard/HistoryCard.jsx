@@ -3,11 +3,8 @@ import ChatCard from "../ChatCard/ChatCard"
 import styles from "./HistoryCard.module.css"
 import { useOutletContext } from "react-router-dom"
 
-const dummyFeedData = {
-    0 : "It was good"
-}
 
-// data is array which contains list of objects - that is 1 convo history, which consists of each chat as an object
+
 export default function HistoryCard ({data, feedIndex}) {
 
     const { feedList } = useOutletContext();
