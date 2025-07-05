@@ -1,4 +1,4 @@
-import { Box, Typography, Stack } from "@mui/material"
+import { Box, Typography,  } from "@mui/material"
 import ChatCard from "../ChatCard/ChatCard"
 import styles from "./HistoryCard.module.css"
 import { useOutletContext } from "react-router-dom"
