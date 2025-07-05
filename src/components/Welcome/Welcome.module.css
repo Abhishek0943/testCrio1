@@ -1,0 +1,9 @@
+.logo {
+    width: 100px;
+    border-radius: 50%;
+}
+
+.card {
+    box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+    border-radius: 5px;
+}
