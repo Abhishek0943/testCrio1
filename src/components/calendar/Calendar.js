@@ -1,5 +1,5 @@
 import DaySelector from "./DaySelector/DaySelector";
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import { useState } from "react";
 import { startOfDay } from "date-fns";
 import TimeSlotPicker from "./TImeSlot/TimeSlot";

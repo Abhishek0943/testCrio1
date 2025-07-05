@@ -1,7 +1,6 @@
-import { useEffect, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import { Box, Button, Divider, Stack, Typography } from '@mui/material';
+import { Box, Divider, Stack, Typography } from '@mui/material';
 import styles from './DaySelector.module.css'
 import { format, add, isEqual, startOfDay } from 'date-fns'
 import { SlideNextButton, SlidePrevButton } from './SlideButton';

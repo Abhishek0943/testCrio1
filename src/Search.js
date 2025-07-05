@@ -12,6 +12,7 @@ import NavBar from "./components/NavBar/NavBar";
 
 export default function Search() {
   const [seachParams, setSearchParams] = useSearchParams();
+  console.log(setSearchParams)
   const [hospitals, setHospitals] = useState([]);
   const [state, setState] = useState(seachParams.get("state"));
   const [city, setCity] = useState(seachParams.get("city"));

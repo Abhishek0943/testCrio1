@@ -2,8 +2,6 @@ import {
     Box,
     Container,
     Button,
-    List,
-    ListItem,
     Stack,
     Typography,
     useMediaQuery,

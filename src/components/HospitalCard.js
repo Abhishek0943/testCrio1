@@ -88,7 +88,7 @@ export default function HospitalCard({
               color="#fff"
               sx={{ opacity: 0.5 }}
             >
-              {details["Hospital overall rating"] == "Not Available"
+              {details["Hospital overall rating"] === "Not Available"
                 ? 0
                 : details["Hospital overall rating"]}
             </Typography>
