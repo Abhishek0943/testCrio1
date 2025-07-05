@@ -1,7 +1,6 @@
-import { Box, TextField, Button, Stack } from "@mui/material"
+import { Box, TextField, Button,  } from "@mui/material"
 import styles from "./Searchbar.module.css"
-import { useRef, useState } from "react"
-import { useOutletContext } from "react-router-dom";
+import {  useState } from "react"
 
 
 import FeedbackModal from "../FeedbackModal/FeedbackModal";

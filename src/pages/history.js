@@ -3,32 +3,7 @@ import HistoryCard from "../components/HistoryCard/HistoryCard"
 import { useOutletContext } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 
-const dummyConvoHistory = [
-    [{
-    type: "history",
-    isUser: true,
-    time: "10:33 am",
-    content: "Lorem ipsum"
-    },
-    {
-    type: "history",
-    isUser: false,
-    time: "10:34 am",
-    content: "Lorem ipsum"
-    }],
-    [{
-    type: "history",
-    isUser: true,
-    time: "11:33 am",
-    content: "Lorem ipsum 2"
-    },
-    {
-    type: "history",
-    isUser: false,
-    time: "11:34 am",
-    content: "Lorem ipsum 2"
-    }]
-]
+
 
 
 export default function ConversationHistory() {

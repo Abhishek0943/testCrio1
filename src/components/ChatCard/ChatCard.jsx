@@ -5,8 +5,6 @@ import styles from "./ChatCard.module.css"
 
 
 export default function ChatCard({type, isUser, content, time}) {
-
-
     return (
         <Box
         className={type === "chat" ? styles.chat : styles.history}

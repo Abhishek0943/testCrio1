@@ -3,15 +3,6 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { useOutletContext } from "react-router-dom";
 import ChatCard from "../components/ChatCard/ChatCard";
 import Welcome from "../components/Welcome/Welcome";
-
-const dummyData = {
-    type: "chat",
-    isUser: false,
-    time: "10:33 am",
-    content: "Lorem ipsum"
-}
-
-// AI Chat
 export default function ChatWindow() {
 
     const { isMobile, setMenuOpen, currentConvo, bottomRef } = useOutletContext();

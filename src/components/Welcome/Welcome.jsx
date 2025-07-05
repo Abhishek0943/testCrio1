@@ -4,12 +4,10 @@ import styles from "./Welcome.module.css"
 import { useOutletContext } from "react-router-dom"
 import Grid from '@mui/material/Grid';
 
-
-
 function QuestionCard ({question}) {
 
     const { setSearch, formRef, textRef } = useOutletContext();
-
+console.log(textRef)
     return (
         <Box
         sx={{

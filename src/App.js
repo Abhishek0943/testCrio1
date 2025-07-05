@@ -1,11 +1,10 @@
 import styles from './App.module.css';
 import Stack from '@mui/material/Stack';
-import Box from '@mui/material/Box';
 import Navbar from './components/Navbar/Navbar';
 import Searchbar from './components/Searchbar/Searchbar';
-import { Outlet, useOutletContext } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import { useMediaQuery } from '@mui/material';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 
 
 const aiData = [
@@ -303,7 +302,7 @@ function App() {
 
     return temp ? JSON.parse(temp) : 0
   });
-  
+
 
   // for auto scroll
   const bottomRef = useRef(null);
@@ -332,30 +331,15 @@ function App() {
 
 
   // function to add to current convo
-  const addChat = (type, isUser, time, content) => {
+  const addChat = useCallback((type, isUser, time, content) => {
+    const data = { type, isUser, time, content };
+    setCurrentConvo(prev => [...prev, data]);
+  }, []);
 
-    const data = {
-      type,
-      isUser,
-      time,
-      content
-    }
+  const fetchAIResponse = useCallback((request) => {
+    let response = aiData.find((item) => item.question === request && item.response)
 
-    setCurrentConvo([...currentConvo, data]);
-
-  }
-  // console.log("current convo >> ", currentConvo);
-
-  const fetchAIResponse = (request) => {
-    
-    let response = aiData.find((item) => {
-
-      if (item.question === request){
-        return item.response
-      }
-    })
-
-    if (!response){
+    if (!response) {
       response = "Sorry, Did not understand your query!";
     }
     else {
@@ -365,16 +349,16 @@ function App() {
     console.log("response >> ", response);
 
     let time = new Date();
-        time = time.toLocaleTimeString('en-In', {
-            hour: "numeric",
-            minute: "numeric"
-        })
+    time = time.toLocaleTimeString('en-In', {
+      hour: "numeric",
+      minute: "numeric"
+    })
     console.log("time ai >> ", time);
 
     addChat("chat", false, time, response);
 
 
-  }
+  }, [addChat]);
 
   const saveConvo = () => {
 
@@ -385,12 +369,12 @@ function App() {
 
 
   const addFeedback = (feedback, key) => {
-    
-    setFeedRef(feedRef+1);
+
+    setFeedRef(feedRef + 1);
 
     setFeedList({
       ...feedList,
-      [key] : feedback
+      [key]: feedback
     })
 
   }
@@ -399,21 +383,21 @@ function App() {
   //use effect to fetch the AI response 
   useEffect(() => {
 
-    if(currentConvo.length>0){
+    if (currentConvo.length > 0) {
 
-      const temp = currentConvo[currentConvo.length-1];
-      if(temp.isUser){
+      const temp = currentConvo[currentConvo.length - 1];
+      if (temp.isUser) {
         fetchAIResponse(temp.content)
       }
 
     }
 
     // autoscroll to bottom
-    bottomRef.current?.scrollIntoView({ behavior: "smooth"});
+    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
 
-  }, [currentConvo])
+  }, [currentConvo, fetchAIResponse])
 
-  
+
   //use effect to save the convo list in local storage
   useEffect(() => {
 
@@ -427,27 +411,27 @@ function App() {
     localStorage.setItem("feedlist", JSON.stringify(feedList));
     localStorage.setItem("feedkey", JSON.stringify(feedRef));
 
-  }, [feedList])
+  }, [feedList, feedRef])
 
   return (
     <div className="App">
-      
+
       <Stack direction="row"
-      className={menuOpen && styles.appContainer}
+        className={menuOpen && styles.appContainer}
       >
 
-          <Navbar isMobile={isMobile} menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+        <Navbar isMobile={isMobile} menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
 
-          <Stack spacing={2}
-          className={[styles.appDesktop, isMobile && styles.appMobile ]}
-          >
-              <Outlet context={outletData} />
-              <Searchbar 
-              addChat={addChat} fetchAIResponse={fetchAIResponse} saveConvo={saveConvo}
-              feedRef={feedRef} setFeedRef={setFeedRef} addFeedback={addFeedback}
-              search={search} setSearch={setSearch} formRef={formRef} textRef={textRef}
-              />
-          </Stack>
+        <Stack spacing={2}
+          className={[styles.appDesktop, isMobile && styles.appMobile]}
+        >
+          <Outlet context={outletData} />
+          <Searchbar
+            addChat={addChat} fetchAIResponse={fetchAIResponse} saveConvo={saveConvo}
+            feedRef={feedRef} setFeedRef={setFeedRef} addFeedback={addFeedback}
+            search={search} setSearch={setSearch} formRef={formRef} textRef={textRef}
+          />
+        </Stack>
 
       </Stack>
 
