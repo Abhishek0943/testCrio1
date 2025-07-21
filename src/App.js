@@ -1,41 +1,45 @@
+import { useEffect, useState } from "react";
 // import "./styles.css";
 
-import { useState } from "react";
-
 export default function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [error, setError] = useState("");
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
-    if (username === "user" && password === "password") {
-      setIsLoggedIn(true);
-      setError("");
-    } else {
-      setError("Invalid username or password");
+  const [isRunning, setRunning] = useState(false);
+  const [currentTime, setCurrentTime] = useState(0);
+
+  useEffect(() => {
+    let interval = null;
+    if (isRunning) {
+      interval = setInterval(() => {
+        setCurrentTime((prevTime) => prevTime + 1);
+        // console.log(currentTime);
+      }, 1000);
+    } else if (!isRunning && currentTime !== 0) {
+      clearInterval(interval);
     }
+    return () => clearInterval(interval);
+  }, [isRunning]);
+
+  const resetTimer = () => {
+    setRunning(false);
+    setCurrentTime(0);
+  };
+
+  const toggle = () => {
+    setRunning((prevState) => !prevState);
+  };
+
+  const formatTime = (time) => {
+    // console.log(time);
+    const minutes = Math.floor(time / 60);
+    const seconds = time % 60;
+    return `${minutes}:${seconds.toString().padStart(2, "0")}`;
   };
 
   return (
     <div className="App">
-      <h1>Login Page</h1>
-      {!isLoggedIn ? (
-        <div>
-          <form action="" onSubmit={handleSubmit}>
-            {error && <p>{error}</p>}
-            <label htmlFor="username">Username:</label>
-            <input type="text" id="username" />
-            <br />
-            <label htmlFor="password">Password:</label>
-            <input type="password" id="password" />
-            <br />
-            <button type="submit">Submit</button>
-          </form>
-        </div>
-      ) : (
-        <p>Welcome, user!</p>
-      )}
+      <h1>Stopwatch</h1>
+      <p className="time">Time: {formatTime(currentTime)}</p>
+      <button onClick={toggle}>{isRunning ? "Stop" : "Start"}</button>
+      <button onClick={resetTimer}>Reset</button>
     </div>
   );
 }
