@@ -2,3 +2,13 @@
   font-family: sans-serif;
   text-align: center;
 }
+.cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin-top: 20px;
+}
+.weather-card {
+}
