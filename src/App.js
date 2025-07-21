@@ -1,51 +1,43 @@
 import { useState } from "react";
+
 // import "./styles.css";
-const customDictionary = {
-  teh: "the",
-  wrok: "work",
-  fot: "for",
-  exampl: "example",
-};
+const dictionary = [
+  {
+    word: "React",
+    meaning: "A JavaScript library for building user interfaces.",
+  },
+
+  { word: "Component", meaning: "A reusable building block in React." },
+
+  { word: "State", meaning: "An object that stores data for a component." },
+];
 
 export default function App() {
-  const [inputText, setInputText] = useState("");
-  const [suggestedText, setSuggestedText] = useState("");
-
-  const handleInputChange = (e) => {
-    const text = e.target.value;
-    setInputText(text);
-
-    // Implement a basic spelling check and correction
-    const words = text.split(" ");
-    const correctedWords = words.map((word) => {
-      const correctedWord = customDictionary[word.toLowerCase()];
-      return correctedWord || word;
-    });
-
-    const correctedText = correctedWords.join(" ");
-
-    // Set the suggested text (first corrected word)
-    const firstCorrection = correctedWords.find(
-      (word, index) => word !== words[index]
+  const [input, setInput] = useState("");
+  const [def, setDef] = useState("");
+  function handleSearch() {
+    const res = dictionary.find(
+      (item) => item.word.toLowerCase() === input.toLowerCase()
     );
-    setSuggestedText(firstCorrection || "");
-  };
-
+    if (res?.meaning) {
+      setDef(res.meaning);
+    } else {
+      setDef("Word not found in the dictionary.");
+    }
+  }
   return (
     <div className="App">
-      <h1>Spell Check and Auto-Correction</h1>
-      <textarea
-        value={inputText}
-        onChange={handleInputChange}
-        placeholder="Enter text..."
-        rows={5}
-        cols={40}
+      <h1>Dictionary App</h1>
+      <input
+        type="text"
+        placeholder="Search for a word..."
+        onChange={(e) => setInput(e.target.value)}
       />
-      {suggestedText && (
-        <p>
-          Did you mean: <strong>{suggestedText}</strong>?
-        </p>
-      )}
+      <button onClick={handleSearch}>Search</button>
+      
+      <b>Definition:</b>
+      
+      <p>{def}</p>
     </div>
   );
 }
