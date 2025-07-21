@@ -1,43 +1,56 @@
 import { useState } from "react";
 
 // import "./styles.css";
-const dictionary = [
-  {
-    word: "React",
-    meaning: "A JavaScript library for building user interfaces.",
-  },
+const data = [
+  { date: "2022-09-01", views: 100, article: "Article 1" },
 
-  { word: "Component", meaning: "A reusable building block in React." },
+  { date: "2023-09-01", views: 100, article: "Article 1" },
 
-  { word: "State", meaning: "An object that stores data for a component." },
+  { date: "2023-09-02", views: 150, article: "Article 2" },
+
+  { date: "2023-09-02", views: 120, article: "Article 3" },
+
+  { date: "2020-09-03", views: 200, article: "Article 4" },
 ];
 
 export default function App() {
-  const [input, setInput] = useState("");
-  const [def, setDef] = useState("");
-  function handleSearch() {
-    const res = dictionary.find(
-      (item) => item.word.toLowerCase() === input.toLowerCase()
-    );
-    if (res?.meaning) {
-      setDef(res.meaning);
+  const [sortedData, setSortedData] = useState(data);
+  const [sortBy, setSortBy] = useState(null);
+  function sortData(key) {
+    let sorted;
+    if (sortBy == key) {
+      sorted = [...sortedData].reverse();
     } else {
-      setDef("Word not found in the dictionary.");
+      sorted = [...sortedData].sort((a, b) => a[key] - b[key]);
     }
+    setSortedData(sorted);
+    setSortBy(key);
   }
   return (
     <div className="App">
-      <h1>Dictionary App</h1>
-      <input
-        type="text"
-        placeholder="Search for a word..."
-        onChange={(e) => setInput(e.target.value)}
-      />
-      <button onClick={handleSearch}>Search</button>
-      
-      <b>Definition:</b>
-      
-      <p>{def}</p>
+      <h1>Date and Views Table</h1>
+      <button onClick={() => sortData("date")}>Sort by Date</button>
+      <button onClick={() => sortData("views")}>Sort by Views</button>
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Views</th>
+            <th>Article</th>
+          </tr>
+        </thead>
+        <tbody>
+          {sortedData.map((item, index) => {
+            return (
+              <tr key={index + 1}>
+                <td>{item.date}</td>
+                <td>{item.views}</td>
+                <td>{item.article}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
     </div>
   );
 }
