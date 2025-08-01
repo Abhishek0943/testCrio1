@@ -1,56 +1,119 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import "./styles.css";
 
-// import "./styles.css";
-const data = [
-  { date: "2022-09-01", views: 100, article: "Article 1" },
+function Modal({ onClose }) {
+  const [formData, setFormData] = useState({
+    username: "",
+    email: "",
+    phone: "",
+    DOB: "",
+  });
 
-  { date: "2023-09-01", views: 100, article: "Article 1" },
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
 
-  { date: "2023-09-02", views: 150, article: "Article 2" },
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
 
-  { date: "2023-09-02", views: 120, article: "Article 3" },
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-  { date: "2020-09-03", views: 200, article: "Article 4" },
-];
+    if (formData.phone.length < 10 || formData.phone.length > 10) {
+      alert("Invalid phone number. Please enter a 10-digit phone number");
+    }
+    const today = new Date();
+    const inputDate = new Date(formData.DOB);
+    if (inputDate > today) {
+      alert("Invalid date of birth. Date of birth cannot be in the future.");
+    }
+    setFormData({
+      username: "",
+      email: "",
+      phone: "",
+      DOB: "",
+    });
+  };
+
+  const handleOverlayClick = (e) => {
+    if (e.target.classList.contains("modal-overlay")) {
+      onClose();
+    }
+  };
+
+  return (
+    <div className="modal-overlay" onClick={handleOverlayClick}>
+      <div className="modal">
+        <div className="modal-content">
+          <h2>User Details Form</h2>
+          <form onSubmit={handleSubmit}>
+            <label>
+              Username:
+              <input
+                id="username"
+                type="text"
+                name="username"
+                value={formData.username}
+                onChange={handleInputChange}
+                required
+              />
+            </label>
+            <br />
+            <label>
+              Email Address:
+              <input
+                id="email"
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleInputChange}
+                required
+              />
+            </label>
+            <br />
+            <label>
+              Phone Number:
+              <input
+                id="phone"
+                type="tel"
+                name="phone"
+                value={formData.phone}
+                onChange={handleInputChange}
+                required
+              />
+            </label>
+            <br />
+            <label>
+              Date of Birth:
+              <input
+                id="dob"
+                type="date"
+                name="DOB"
+                value={formData.DOB}
+                onChange={handleInputChange}
+                required
+              />
+            </label>
+            <button type="submit" className="submit-button">
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function App() {
-  const [sortedData, setSortedData] = useState(data);
-  const [sortBy, setSortBy] = useState(null);
-  function sortData(key) {
-    let sorted;
-    if (sortBy == key) {
-      sorted = [...sortedData].reverse();
-    } else {
-      sorted = [...sortedData].sort((a, b) => a[key] - b[key]);
-    }
-    setSortedData(sorted);
-    setSortBy(key);
-  }
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
-    <div className="App">
-      <h1>Date and Views Table</h1>
-      <button onClick={() => sortData("date")}>Sort by Date</button>
-      <button onClick={() => sortData("views")}>Sort by Views</button>
-      <table>
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Views</th>
-            <th>Article</th>
-          </tr>
-        </thead>
-        <tbody>
-          {sortedData.map((item, index) => {
-            return (
-              <tr key={index + 1}>
-                <td>{item.date}</td>
-                <td>{item.views}</td>
-                <td>{item.article}</td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+    <div className={`App ${isModalOpen ? "modal-open" : ""}`}>
+      <h1>User Details Modal</h1>
+      <button onClick={() => setIsModalOpen(!isModalOpen)}>Open Form</button>
+      {isModalOpen && <Modal onClose={() => setIsModalOpen(false)} />}
     </div>
   );
 }
