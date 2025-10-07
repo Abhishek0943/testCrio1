@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 49 100% 91%; /* Light Cream Color */
+    --foreground: 184 35% 30%; /* Dark Teal Color */
+    --card: 184 35% 30%; /* Dark Teal Color */
+    --card-foreground: 49 100% 91%; /* Light Cream Color */
+    --popover: 49 100% 91%; /* Light Cream Color */
+    --popover-foreground: 184 35% 30%; /* Dark Teal Color */
+    --primary: 26 74% 60%; /* Light Brown Color */
+    --primary-foreground: 0 0% 100%; /* White for contrast */
+    --secondary: 199 98% 69%; /* Light Blue Color */
+    --secondary-foreground: 0 0% 0%; /* Black for contrast */
+    --muted: 184 35% 30%; /* Dark Teal Color */
+    --muted-foreground: 49 100% 91%; /* Light Cream Color */
+    --accent: 177 53% 52%; /* Teal Color */
+    --accent-foreground: 0 0% 100%; /* White for contrast */
+    --destructive: 0 84.2% 60.2%; /* Red (remains unchanged) */
+    --destructive-foreground: 0 0% 98%; /* Light color for contrast */
+    --border: 184 35% 30%; /* Dark Teal Color */
+    --input: 184 35% 30%; /* Dark Teal Color */
+    --ring: 26 74% 60%; /* Light Brown Color */
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 184 35% 30%; /* Dark Teal Color */
+    --foreground: 49 100% 91%; /* Light Cream Color */
+    --card: 184 35% 30%; /* Dark Teal Color */
+    --card-foreground: 49 100% 91%; /* Light Cream Color */
+    --popover: 184 35% 30%; /* Dark Teal Color */
+    --popover-foreground: 49 100% 91%; /* Light Cream Color */
+    --primary: 26 74% 60%; /* Light Brown Color */
+    --primary-foreground: 0 0% 100%; /* White for contrast */
+    --secondary: 199 98% 69%; /* Light Blue Color */
+    --secondary-foreground: 0 0% 0%; /* Black for contrast */
+    --muted: 184 35% 30%; /* Dark Teal Color */
+    --muted-foreground: 49 100% 91%; /* Light Cream Color */
+    --accent: 177 53% 52%; /* Teal Color */
+    --accent-foreground: 0 0% 100%; /* White for contrast */
+    --destructive: 0 62.8% 30.6%; /* Red (remains unchanged) */
+    --destructive-foreground: 0 85.7% 97.3%; /* Light color for contrast */
+    --border: 184 35% 30%; /* Dark Teal Color */
+    --input: 184 35% 30%; /* Dark Teal Color */
+    --ring: 26 74% 60%; /* Light Brown Color */
+  }
+}
+
+.hover-inverse {
+  transition: all 0.15s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.hover-inverse::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.5) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transition: left 0.5s ease-in-out;
+}
+
+.hover-inverse:hover::before {
+  left: 100%;
+}
+
+.hover-inverse:hover img {
+  filter: invert(1);
+}
+
+* {
+  scroll-behavior: smooth;
+}
